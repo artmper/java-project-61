@@ -4,9 +4,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class EvenGame {
+    private static final Random RANDOM = new Random();
+
     public static void playEven() {
         var scanner = new Scanner(System.in);
-        var random = new Random();
         int randomNumber;
         String playerGuess;
         int countCorrect = 0;
@@ -15,7 +16,7 @@ public class EvenGame {
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         while(countCorrect < 3) {
-            randomNumber = random.nextInt(100) + 1;
+            randomNumber = RANDOM.nextInt(100) + 1;
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
             playerGuess = scanner.nextLine();

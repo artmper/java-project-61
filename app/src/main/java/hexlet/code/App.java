@@ -18,9 +18,11 @@ public class App {
         switch(userChoose) {
             case 1:
                 Cli.greetingPlayer();
+                break;
             case 2:
                 Cli.greetingPlayer();
                 EvenGame.playEven();
+                break;
             case 0:
             default:
                 break;
