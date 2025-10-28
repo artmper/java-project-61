@@ -5,5 +5,10 @@
 
 [![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-light.svg)](https://sonarcloud.io/summary/new_code?id=artmper_java-project-61)
 
-### Asciinema Recording:
+### Asciinema Recordings:
+###Even Game:
 [![asciicast](https://asciinema.org/a/9ET0xq4OJxyjpwxZvhglMroxB.svg)](https://asciinema.org/a/9ET0xq4OJxyjpwxZvhglMroxB)
+
+###Calc Game:
+[![asciicast](https://asciinema.org/a/HXOnLZtyDBs1FfMUVJMXO6AVY.svg)](https://asciinema.org/a/HXOnLZtyDBs1FfMUVJMXO6AVY)
+
