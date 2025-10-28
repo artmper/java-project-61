@@ -11,9 +11,10 @@ public class App {
         int userChoose;
 
         System.out.println("Please enter the game number and press Enter."
-                + "\n" + game1 + "\n" + game0 + "\n" + game2);
+                + "\n" + game1 + "\n" + game2 + "\n" + game0);
+        System.out.print("Your choice: ");
         userChoose = scanner.nextInt();
-        System.out.println("Your choice: " + userChoose + "\n");
+
 
         switch(userChoose) {
             case 1:
