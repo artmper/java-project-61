@@ -4,18 +4,19 @@ import hexlet.code.Engine;
 
 public final class PrimeGame {
     private static final int MAX_NUMBER = 100;
+    private static final int MIN_PRIME = 2;
 
     private PrimeGame() {
 
     }
     public static boolean isPrime(int number) {
-        if (number == 2) {
+        if (number == MIN_PRIME) {
             return true;
         }
-        if (number < 2 || number % 2 == 0) {
+        if (number < MIN_PRIME || number % 2 == 0) {
             return false;
         }
-        for (int i = 3; i < Math.sqrt(number); i += 2) {
+        for (int i = MIN_PRIME + 1; i < Math.sqrt(number); i += 2) {
             if (number % i == 0) {
                 return false;
             }

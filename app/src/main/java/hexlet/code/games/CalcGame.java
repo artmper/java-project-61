@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class CalcGame {
+public final class CalcGame {
     private static final int MAX_NUMBER = 100;
     private static final int OPERATIONS_COUNT = 3;
 

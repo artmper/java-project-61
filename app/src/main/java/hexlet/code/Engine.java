@@ -43,8 +43,8 @@ public final class Engine {
         return SCANNER;
     }
 
-    public static void setPlayerName(String playerName) {
-        Engine.playerName = playerName;
+    public static void setPlayerName(String name) {
+        Engine.playerName = name;
     }
     public static void setGameType() {
         System.out.println("Please enter the game number and press Enter."
@@ -74,16 +74,16 @@ public final class Engine {
     public static void setCountCorrect(int exitNumber) {
         Engine.countCorrect = exitNumber;
     }
-    public static void setWinMessage(String playerName) {
+    public static void setWinMessage() {
         Engine.winMessage = "Congratulations, " + Engine.playerName + "!";
     }
 
     public static void greetingPlayer() {
         System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        String playerName = SCANNER.next();
-        setPlayerName(playerName);
-        setWinMessage(playerName);
+
+        setPlayerName(SCANNER.next());
+        setWinMessage();
 
         System.out.println("Hello, " + Engine.playerName + "!");
     }
