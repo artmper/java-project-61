@@ -96,12 +96,8 @@ public class Engine {
             case 4 -> manageGame(GcdGame::play);
             case 5 -> manageGame(ProgressionGame::play);
             case 6 -> manageGame(PrimeGame::play);
-            case 0 -> {
-                return;
-            }
-            default -> {
-                    System.out.println("Wrong game number. Choose between 0 to 6.");
-            }
+            case 0 -> System.exit(0);
+            default -> System.out.println("Wrong game number. Choose between 0 to 6.");
         }
 
     }
