@@ -1,10 +1,15 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.CalcGame;
+import hexlet.code.games.GcdGame;
+import hexlet.code.games.ProgressionGame;
+import hexlet.code.games.PrimeGame;
+
 import java.util.Random;
 import java.util.Scanner;
 
-public class Engine {
+public final class Engine {
     private static final Random RANDOM = new Random();
     private static final Scanner SCANNER = new Scanner(System.in);
 
@@ -23,7 +28,7 @@ public class Engine {
     private static final String PRIME_TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     private static String playerName;
-    private static int gameType;
+    private static String gameType;
     private static int countCorrect;
     private static String winMessage;
     private static String gameTask;
@@ -51,15 +56,15 @@ public class Engine {
                 + "\n" + Engine.GAME6
                 + "\n" + Engine.GAME0);
         System.out.print("Your choice: ");
-        gameType = SCANNER.nextInt();
+        gameType = SCANNER.nextLine();
     }
     public static void setGameTask() {
         gameTask = switch (gameType) {
-            case 2 -> EVEN_TASK;
-            case 3 -> CALC_TASK;
-            case 4 -> NOD_TASK;
-            case 5 -> PROGRESSION_TASK;
-            case 6 -> PRIME_TASK;
+            case "2" -> EVEN_TASK;
+            case "3" -> CALC_TASK;
+            case "4" -> NOD_TASK;
+            case "5" -> PROGRESSION_TASK;
+            case "6" -> PRIME_TASK;
             default -> "";
         };
     }
@@ -70,7 +75,7 @@ public class Engine {
         Engine.countCorrect = exitNumber;
     }
     public static void setWinMessage(String playerName) {
-        Engine.winMessage = "Congratulations, " + playerName + "!";
+        Engine.winMessage = "Congratulations, " + Engine.playerName + "!";
     }
 
     public static void greetingPlayer() {
@@ -87,13 +92,13 @@ public class Engine {
     }
     public static void playGame() {
         switch (gameType) {
-            case 1 -> greetingPlayer();
-            case 2 -> manageGame(EvenGame::play);
-            case 3 -> manageGame(CalcGame::play);
-            case 4 -> manageGame(GcdGame::play);
-            case 5 -> manageGame(ProgressionGame::play);
-            case 6 -> manageGame(PrimeGame::play);
-            case 0 -> System.exit(0);
+            case "1" -> greetingPlayer();
+            case "2" -> manageGame(EvenGame::play);
+            case "3" -> manageGame(CalcGame::play);
+            case "4" -> manageGame(GcdGame::play);
+            case "5" -> manageGame(ProgressionGame::play);
+            case "6" -> manageGame(PrimeGame::play);
+            case "0" -> System.exit(0);
             default -> System.out.println("Wrong game number. Choose between 0 to 6.");
         }
 

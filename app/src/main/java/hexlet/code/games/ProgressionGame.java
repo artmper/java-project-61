@@ -2,21 +2,24 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class ProgressionGame {
+public final class ProgressionGame {
+    private static final int MAX_NUMBER = 50;
+    private static final int MIN_LENGTH = 5;
+    private static final int MIN_STEP = 2;
     private static int correctNumber;
 
     private ProgressionGame() {
 
     }
-    public static void setCorrectNumber(int correctNumber) {
-        ProgressionGame.correctNumber = correctNumber;
+    public static void setCorrectNumber(int number) {
+       correctNumber = number;
     }
 
     public static String generateProgression() {
-        int progressionLength = Engine.getRandom().nextInt(6) + 5;
+        int progressionLength = Engine.getRandom().nextInt(MIN_LENGTH + 1) + MIN_LENGTH;
         int missingIndex = Engine.getRandom().nextInt(progressionLength);
-        int startNumber = Engine.getRandom().nextInt(50);
-        int step = Engine.getRandom().nextInt(5) + 2;
+        int startNumber = Engine.getRandom().nextInt(MAX_NUMBER);
+        int step = Engine.getRandom().nextInt(MIN_STEP + 1) + MIN_STEP;
 
         var progression = new StringBuilder();
         int currentElement;
@@ -24,7 +27,7 @@ public class ProgressionGame {
         for (int index = 0; index < progressionLength; index++) {
             currentElement = startNumber + index * step;
             if (index != missingIndex) {
-                progression.append(Integer.toString(currentElement)).append(" ");
+                progression.append(currentElement).append(" ");
                 continue;
             }
             progression.append("..").append(" ");

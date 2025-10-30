@@ -3,13 +3,16 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class CalcGame {
+    private static final int MAX_NUMBER = 100;
+    private static final int OPERATIONS_COUNT = 3;
+
     private CalcGame() {
     }
 
     public static void play() {
-        int randomNumber1 = Engine.getRandom().nextInt(100) + 1;
-        int randomNumber2 = Engine.getRandom().nextInt(100) + 1;
-        int randomOperation = Engine.getRandom().nextInt(3);
+        int randomNumber1 = Engine.getRandom().nextInt(MAX_NUMBER) + 1;
+        int randomNumber2 = Engine.getRandom().nextInt(MAX_NUMBER) + 1;
+        int randomOperation = Engine.getRandom().nextInt(OPERATIONS_COUNT);
 
         String operation = switch (randomOperation) {
             case 0 -> "-";

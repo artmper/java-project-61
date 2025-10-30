@@ -2,7 +2,9 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class GcdGame {
+public final class GcdGame {
+    private static final int MAX_NUMBER = 100;
+
     private GcdGame() {
     }
     public static String gcd(int number1, int number2) {
@@ -14,8 +16,8 @@ public class GcdGame {
         return Integer.toString(number1);
     }
     public static void play() {
-        int randomNumber1 = Engine.getRandom().nextInt(100) + 1;
-        int randomNumber2 = Engine.getRandom().nextInt(100) + 1;
+        int randomNumber1 = Engine.getRandom().nextInt(MAX_NUMBER) + 1;
+        int randomNumber2 = Engine.getRandom().nextInt(MAX_NUMBER) + 1;
 
         String quest = randomNumber1 + " " + randomNumber2;
         Engine.printQuestion(quest);
