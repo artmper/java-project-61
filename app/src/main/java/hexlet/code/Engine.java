@@ -97,8 +97,6 @@ public class Engine {
                 case 4 -> manageGame(GcdGame::play);
                 case 5 -> manageGame(ProgressionGame::play);
                 case 6 -> manageGame(PrimeGame::play);
-                default -> {
-                }
             }
         }
     }
