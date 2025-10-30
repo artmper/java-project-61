@@ -89,16 +89,21 @@ public class Engine {
         return playerGuess.equals(correctAnswer);
     }
     public static void playGame() {
-        if (gameType != 0) {
-            greetingPlayer();
-            switch (gameType) {
-                case 2 -> manageGame(EvenGame::play);
-                case 3 -> manageGame(CalcGame::play);
-                case 4 -> manageGame(GcdGame::play);
-                case 5 -> manageGame(ProgressionGame::play);
-                case 6 -> manageGame(PrimeGame::play);
+        switch (gameType) {
+            case 1 -> greetingPlayer();
+            case 2 -> manageGame(EvenGame::play);
+            case 3 -> manageGame(CalcGame::play);
+            case 4 -> manageGame(GcdGame::play);
+            case 5 -> manageGame(ProgressionGame::play);
+            case 6 -> manageGame(PrimeGame::play);
+            case 0 -> {
+                return;
+            }
+            default -> {
+                    System.out.println("Wrong game number. Choose between 0 to 6.");
             }
         }
+
     }
     public static void printQuestion(String quest) {
         System.out.println("Question: " + quest);
@@ -116,6 +121,7 @@ public class Engine {
         }
     }
     public static void manageGame(Runnable game) {
+        greetingPlayer();
         System.out.println(gameTask);
         while (countCorrect < COUNT_TO_WIN) {
             game.run();
