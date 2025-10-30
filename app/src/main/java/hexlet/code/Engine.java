@@ -102,6 +102,7 @@ public class Engine {
 
     }
     public static void printQuestion(String quest) {
+        System.out.println(gameTask);
         System.out.println("Question: " + quest);
         System.out.print("Your answer: ");
     }
@@ -118,7 +119,6 @@ public class Engine {
     }
     public static void manageGame(Runnable game) {
         greetingPlayer();
-        System.out.println(gameTask);
         while (countCorrect < COUNT_TO_WIN) {
             game.run();
         }
