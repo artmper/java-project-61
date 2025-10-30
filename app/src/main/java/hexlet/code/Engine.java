@@ -12,10 +12,12 @@ public class Engine {
     private static final String GAME2 = "2 - Even";
     private static final String GAME3 = "3 - Calc";
     private static final String GAME4 = "4 - GCD";
+    private static final String GAME5 = "5 - Progression";
     private static final String GAME0 = "0 - Exit";
     private static final String EVEN_TASK = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private static final String CALC_TASK = "What is the result of the expression?";
     private static final String NOD_TASK = "Find the greatest common divisor of given numbers.";
+    private static final String PROGRESSION_TASK = "What number is missing in the progression?";
 
     private static String playerName;
     private static int gameType;
@@ -42,6 +44,7 @@ public class Engine {
                 + "\n" + Engine.GAME2
                 + "\n" + Engine.GAME3
                 + "\n" + Engine.GAME4
+                + "\n" + Engine.GAME5
                 + "\n" + Engine.GAME0);
         System.out.print("Your choice: ");
         gameType = SCANNER.nextInt();
@@ -54,6 +57,7 @@ public class Engine {
             case 2 -> EVEN_TASK;
             case 3 -> CALC_TASK;
             case 4 -> NOD_TASK;
+            case 5 -> PROGRESSION_TASK;
             default -> "";
         };
     }
@@ -68,7 +72,7 @@ public class Engine {
     }
 
     public static void greetingPlayer() {
-        System.out.println("Welcome to the Brain Games!");
+        System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String playerName = SCANNER.next();
         setPlayerName(playerName);
@@ -105,6 +109,15 @@ public class Engine {
                     System.out.println(gameTask);
                     while (countCorrect < 3) {
                         GcdGame.play();
+                    }
+                    if (countCorrect < 4) {
+                        System.out.println(winMessage);
+                    }
+                    break;
+                case 5:
+                    System.out.println(gameTask);
+                    while (countCorrect < 3) {
+                        Progression.play();
                     }
                     if (countCorrect < 4) {
                         System.out.println(winMessage);
