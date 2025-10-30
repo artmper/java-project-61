@@ -7,11 +7,17 @@
 
 ### Asciinema Recordings:
 Even Game:
+
 [![asciicast](https://asciinema.org/a/9ET0xq4OJxyjpwxZvhglMroxB.svg)](https://asciinema.org/a/9ET0xq4OJxyjpwxZvhglMroxB)
 
 Calc Game:
+
 [![asciicast](https://asciinema.org/a/HXOnLZtyDBs1FfMUVJMXO6AVY.svg)](https://asciinema.org/a/HXOnLZtyDBs1FfMUVJMXO6AVY)
 
 GCD Game:
 
 [![asciicast](https://asciinema.org/a/lSeR07prIYr9UASiPiC8SsxzY.svg)](https://asciinema.org/a/lSeR07prIYr9UASiPiC8SsxzY)
+
+Progression Game:
+
+[![asciicast](https://asciinema.org/a/6lZ6FSxZLQZbObwywmVM7fYPE.svg)](https://asciinema.org/a/6lZ6FSxZLQZbObwywmVM7fYPE)
