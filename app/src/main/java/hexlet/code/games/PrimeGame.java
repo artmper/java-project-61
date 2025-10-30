@@ -16,7 +16,7 @@ public final class PrimeGame {
         if (number < MIN_PRIME || number % 2 == 0) {
             return false;
         }
-        for (int i = MIN_PRIME + 1; i < Math.sqrt(number); i += 2) {
+        for (int i = MIN_PRIME + 1; i <= Math.sqrt(number); i += 2) {
             if (number % i == 0) {
                 return false;
             }
