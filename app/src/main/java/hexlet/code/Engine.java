@@ -56,7 +56,7 @@ public class Engine {
     public static int getGameType() {
         return gameType;
     }
-    public static void setGameTask(int gameType) {
+    public static void setGameTask() {
         gameTask = switch (gameType) {
             case 2 -> EVEN_TASK;
             case 3 -> CALC_TASK;
