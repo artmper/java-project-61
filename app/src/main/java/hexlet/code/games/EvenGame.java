@@ -12,13 +12,15 @@ public class EvenGame {
 
     public static void play() {
         int randomNumber = Engine.getRandom().nextInt(100) + 1;
+
         String quest = Integer.toString(randomNumber);
         Engine.printQuestion(quest);
         String playerGuess = Engine.getScanner().next();
+
         boolean gameResult = (playerGuess.equals("yes") && isEven(randomNumber))
                 || (playerGuess.equals("no") && !isEven(randomNumber));
-        String correctAnswer = isEven(randomNumber) ? "yes" : "no";
 
+        String correctAnswer = isEven(randomNumber) ? "yes" : "no";
         Engine.printResult(gameResult, playerGuess, correctAnswer);
     }
 }

@@ -20,6 +20,7 @@ public class GcdGame {
         String quest = randomNumber1 + " " + randomNumber2;
         Engine.printQuestion(quest);
         String playerGuess = Engine.getScanner().next();
+
         String correctAnswer = gcd(randomNumber1, randomNumber2);
         boolean gameResult = Engine.isCorrect(playerGuess, correctAnswer);
 

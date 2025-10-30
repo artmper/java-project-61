@@ -2,14 +2,14 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class Progression {
+public class ProgressionGame {
     private static int correctNumber;
 
-    private Progression() {
+    private ProgressionGame() {
 
     }
     public static void setCorrectNumber(int correctNumber) {
-        Progression.correctNumber = correctNumber;
+        ProgressionGame.correctNumber = correctNumber;
     }
 
     public static String generateProgression() {
@@ -37,6 +37,7 @@ public class Progression {
         String quest = generateProgression();
         Engine.printQuestion(quest);
         String playerGuess = Engine.getScanner().next();
+
         String correctAnswer = Integer.toString(correctNumber);
         boolean gameResult = Engine.isCorrect(playerGuess, correctAnswer);
 
