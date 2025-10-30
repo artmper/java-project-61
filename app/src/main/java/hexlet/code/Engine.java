@@ -20,7 +20,7 @@ public class Engine {
     private static final String CALC_TASK = "What is the result of the expression?";
     private static final String NOD_TASK = "Find the greatest common divisor of given numbers.";
     private static final String PROGRESSION_TASK = "What number is missing in the progression?";
-    private static final String PRIME_TASK = "Answer 'yes' if the number is prime, otherwise answer 'no'.";
+    private static final String PRIME_TASK = "Answer 'yes' if given number is prime, otherwise answer 'no'.";
 
     private static String playerName;
     private static int gameType;
@@ -52,9 +52,6 @@ public class Engine {
                 + "\n" + Engine.GAME0);
         System.out.print("Your choice: ");
         gameType = SCANNER.nextInt();
-    }
-    public static int getGameType() {
-        return gameType;
     }
     public static void setGameTask() {
         gameTask = switch (gameType) {
