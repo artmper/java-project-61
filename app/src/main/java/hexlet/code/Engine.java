@@ -32,9 +32,6 @@ public final class Engine {
     public static Random getRandom() {
         return RANDOM;
     }
-    public static Scanner getScanner() {
-        return SCANNER;
-    }
 
     public static void setPlayerName(String name) {
         Engine.playerName = name;
@@ -135,5 +132,6 @@ public final class Engine {
         if (countCorrect == COUNT_TO_WIN) {
             System.out.println(winMessage);
         }
+        SCANNER.close();
     }
 }
