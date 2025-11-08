@@ -4,25 +4,22 @@ import hexlet.code.Engine;
 
 public final class EvenGame {
     private static final int MAX_NUMBER = 100;
+    private static final String EVEN_TASK = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    private EvenGame() {
+    private static String generateResult(int number) {
+        return number % 2 == 0 ? "yes" : "no";
     }
 
-    public static boolean isEven(int number) {
-        return number % 2 == 0;
-    }
-
-    public static void play() {
+    private static String[] makeGame() {
         int randomNumber = Engine.getRandom().nextInt(MAX_NUMBER) + 1;
+        String quest = "Question: " + randomNumber;
+        String result = generateResult(randomNumber);
 
-        String quest = Integer.toString(randomNumber);
-        Engine.printQuestion(quest);
-        String playerGuess = Engine.getScanner().next();
-
-        boolean gameResult = (playerGuess.equals("yes") && isEven(randomNumber))
-                || (playerGuess.equals("no") && !isEven(randomNumber));
-
-        String correctAnswer = isEven(randomNumber) ? "yes" : "no";
-        Engine.printResult(gameResult, playerGuess, correctAnswer);
+        return new String[]{quest, result, EVEN_TASK};
     }
+
+    public static String[] getGame() {
+        return makeGame();
+    }
+
 }

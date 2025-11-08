@@ -5,11 +5,18 @@ import hexlet.code.Engine;
 public final class CalcGame {
     private static final int MAX_NUMBER = 100;
     private static final int OPERATIONS_COUNT = 3;
+    private static final String CALC_TASK = "What is the result of the expression?";
 
-    private CalcGame() {
+    private static int generateResult(int number1, int number2, String operation) {
+        return switch (operation) {
+            case "-" -> number1 - number2;
+            case "+" -> number1 + number2;
+            case "*" -> number1 * number2;
+            default -> 0;
+        };
     }
 
-    public static void play() {
+    private static String[] makeGame() {
         int randomNumber1 = Engine.getRandom().nextInt(MAX_NUMBER) + 1;
         int randomNumber2 = Engine.getRandom().nextInt(MAX_NUMBER) + 1;
         int randomOperation = Engine.getRandom().nextInt(OPERATIONS_COUNT);
@@ -21,19 +28,13 @@ public final class CalcGame {
             default -> "";
         };
 
-        int result = switch (operation) {
-            case "-" -> randomNumber1 - randomNumber2;
-            case "+" -> randomNumber1 + randomNumber2;
-            case "*" -> randomNumber1 * randomNumber2;
-            default -> 0;
-        };
-        String quest = randomNumber1 + " " + operation + " " + randomNumber2;
-        Engine.printQuestion(quest);
-        String playerGuess = Engine.getScanner().next();
+        String quest = "Question: " + randomNumber1 + " " + operation + " " + randomNumber2;
+        String result = String.valueOf(generateResult(randomNumber1, randomNumber2, operation));
 
-        String correctAnswer = Integer.toString(result);
-        boolean gameResult = Engine.isCorrect(playerGuess, correctAnswer);
+        return new String[]{quest, result, CALC_TASK};
+    }
 
-        Engine.printResult(gameResult, playerGuess, correctAnswer);
+    public static String[] getGame() {
+        return makeGame();
     }
 }

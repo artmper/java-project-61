@@ -4,36 +4,21 @@ import hexlet.code.Engine;
 
 public final class PrimeGame {
     private static final int MAX_NUMBER = 100;
-    private static final int MIN_PRIME = 2;
+    private static final String PRIME_TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    private PrimeGame() {
+    private static String generateResult(int number) {
+        return Engine.isPrime(number) ? "yes" : "no";
+    }
 
-    }
-    public static boolean isPrime(int number) {
-        if (number == MIN_PRIME) {
-            return true;
-        }
-        if (number < MIN_PRIME || number % 2 == 0) {
-            return false;
-        }
-        for (int i = MIN_PRIME + 1; i <= Math.sqrt(number); i += 2) {
-            if (number % i == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-    public static void play() {
+    private static String[] makeGame() {
         int randomNumber = Engine.getRandom().nextInt(MAX_NUMBER) + 1;
+        String quest = "Question: " + randomNumber;
+        String result = generateResult(randomNumber);
 
-        String quest = Integer.toString(randomNumber);
-        Engine.printQuestion(quest);
-        String playerGuess = Engine.getScanner().next();
+        return new String[]{quest, result, PRIME_TASK};
+    }
 
-        boolean gameResult = (playerGuess.equals("yes") && isPrime(randomNumber))
-                || (playerGuess.equals("no") && !isPrime(randomNumber));
-
-        String correctAnswer = isPrime(randomNumber) ? "yes" : "no";
-        Engine.printResult(gameResult, playerGuess, correctAnswer);
+    public static String[] getGame() {
+        return makeGame();
     }
 }

@@ -4,10 +4,9 @@ import hexlet.code.Engine;
 
 public final class GcdGame {
     private static final int MAX_NUMBER = 100;
+    private static final String GCD_TASK = "Find the greatest common divisor of given numbers.";
 
-    private GcdGame() {
-    }
-    public static String gcd(int number1, int number2) {
+    private static String generateResult(int number1, int number2) {
         while (number2 != 0) {
             int tmp = number1 % number2;
             number1 = number2;
@@ -15,17 +14,17 @@ public final class GcdGame {
         }
         return Integer.toString(number1);
     }
-    public static void play() {
+
+    private static String[] makeGame() {
         int randomNumber1 = Engine.getRandom().nextInt(MAX_NUMBER) + 1;
         int randomNumber2 = Engine.getRandom().nextInt(MAX_NUMBER) + 1;
+        String quest = "Question: " + randomNumber1 + " " + randomNumber2;
+        String result = generateResult(randomNumber1, randomNumber2);
 
-        String quest = randomNumber1 + " " + randomNumber2;
-        Engine.printQuestion(quest);
-        String playerGuess = Engine.getScanner().next();
+        return new String[]{quest, result, GCD_TASK};
+    }
 
-        String correctAnswer = gcd(randomNumber1, randomNumber2);
-        boolean gameResult = Engine.isCorrect(playerGuess, correctAnswer);
-
-        Engine.printResult(gameResult, playerGuess, correctAnswer);
+    public static String[] getGame() {
+        return makeGame();
     }
 }

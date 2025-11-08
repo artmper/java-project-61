@@ -6,44 +6,38 @@ public final class ProgressionGame {
     private static final int MAX_NUMBER = 50;
     private static final int MIN_LENGTH = 5;
     private static final int MIN_STEP = 2;
-    private static int correctNumber;
+    private static final String PROGRESSION_TASK = "What number is missing in the progression?";
 
-    private ProgressionGame() {
-
-    }
-    public static void setCorrectNumber(int number) {
-       correctNumber = number;
-    }
-
-    public static String generateProgression() {
-        int progressionLength = Engine.getRandom().nextInt(MIN_LENGTH + 1) + MIN_LENGTH;
-        int missingIndex = Engine.getRandom().nextInt(progressionLength);
-        int startNumber = Engine.getRandom().nextInt(MAX_NUMBER);
-        int step = Engine.getRandom().nextInt(MIN_STEP + 1) + MIN_STEP;
-
+    private static String generateProgression(int length, int step, int start) {
         var progression = new StringBuilder();
         int currentElement;
-
-        for (int index = 0; index < progressionLength; index++) {
-            currentElement = startNumber + index * step;
-            if (index != missingIndex) {
-                progression.append(currentElement).append(" ");
-                continue;
+        for (int index = 0; index < length; index++) {
+            currentElement = start + index * step;
+            progression.append(currentElement);
+            if (index < length - 1) {
+                progression.append(" ");
             }
-            progression.append("..").append(" ");
-            setCorrectNumber(currentElement);
         }
         return progression.toString();
     }
 
-    public static void play() {
-        String quest = generateProgression();
-        Engine.printQuestion(quest);
-        String playerGuess = Engine.getScanner().next();
+    private static String[] makeGame() {
+        int progressionLength = Engine.getRandom().nextInt(MIN_LENGTH + 1) + MIN_LENGTH;
+        int startNumber = Engine.getRandom().nextInt(MAX_NUMBER);
+        int step = Engine.getRandom().nextInt(MIN_STEP + 1) + MIN_STEP;
+        int missingIndex = Engine.getRandom().nextInt(progressionLength);
 
-        String correctAnswer = Integer.toString(correctNumber);
-        boolean gameResult = Engine.isCorrect(playerGuess, correctAnswer);
+        String[] numbers = generateProgression(progressionLength, step, startNumber).split(" ");
 
-        Engine.printResult(gameResult, playerGuess, correctAnswer);
+        String result = numbers[missingIndex];
+        numbers[missingIndex] = "..";
+
+        String quest = "Question: " + String.join(" ", numbers);
+
+        return new String[]{quest, result, PROGRESSION_TASK};
+    }
+
+    public static String[] getGame() {
+        return makeGame();
     }
 }
