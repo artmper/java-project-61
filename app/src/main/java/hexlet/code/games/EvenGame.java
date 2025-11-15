@@ -9,7 +9,7 @@ public final class EvenGame {
     private static boolean generateResult(int number) {
         return number % 2 == 0;
     }
-    
+
     private static String[] makeGame() {
         int randomNumber = Engine.getRandom().nextInt(MAX_NUMBER) + 1;
         String quest = "Question: " + randomNumber;
