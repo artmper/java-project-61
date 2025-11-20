@@ -3,8 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import javax.print.attribute.ResolutionSyntax;
-
 public final class GcdGame {
     private static final int MAX_NUMBER = 100;
     private static final String GCD_TASK = "Find the greatest common divisor of given numbers.";

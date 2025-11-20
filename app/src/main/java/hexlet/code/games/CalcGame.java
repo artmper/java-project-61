@@ -17,10 +17,9 @@ public final class CalcGame {
     }
 
     private static String[] makeGame() {
-        int operationsCount = 3;
         int randomNumber1 = Utils.generateNumber(1, MAX_NUMBER);
         int randomNumber2 = Utils.generateNumber(1, MAX_NUMBER);
-        int randomOperationIndex = Utils.generateNumber(0, operationsCount - 1);
+        int randomOperationIndex = Utils.generateNumber(0, 2);
 
         String[] operations = new String[]{"-", "+", "*"};
         String randomOperation = operations[randomOperationIndex];

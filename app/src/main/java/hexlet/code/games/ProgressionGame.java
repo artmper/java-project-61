@@ -19,12 +19,11 @@ public final class ProgressionGame {
     }
 
     private static String[] makeGame() {
-        int minLength = 5;
         final int maxLength = 10;
         final int minStep = 2;
         final int maxStep = 5;
 
-        int progressionLength = Utils.generateNumber(minLength, maxLength);
+        int progressionLength = Utils.generateNumber(5, maxLength);
         int startNumber = Utils.generateNumber(1, MAX_NUMBER);
         int step = Utils.generateNumber(minStep, maxStep);
         int missingIndex = Utils.generateNumber(0, progressionLength - 1);

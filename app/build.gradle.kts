@@ -13,7 +13,9 @@ application { mainClass.set("hexlet.code.App") }
 checkstyle {
     toolVersion = "10.12.4"
 }
+dependencies {
 
+}
 repositories {
     mavenCentral()
 }
