@@ -1,10 +1,10 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public final class CalcGame {
     private static final int MAX_NUMBER = 100;
-    private static final int OPERATIONS_COUNT = 3;
     private static final String CALC_TASK = "What is the result of the expression?";
 
     private static int generateResult(int number1, int number2, String operation) {
@@ -12,29 +12,31 @@ public final class CalcGame {
             case "-" -> number1 - number2;
             case "+" -> number1 + number2;
             case "*" -> number1 * number2;
-            default -> 0;
+            default -> throw new IllegalArgumentException("Unknown operation: " + operation);
         };
     }
 
     private static String[] makeGame() {
-        int randomNumber1 = Engine.getRandom().nextInt(MAX_NUMBER) + 1;
-        int randomNumber2 = Engine.getRandom().nextInt(MAX_NUMBER) + 1;
-        int randomOperation = Engine.getRandom().nextInt(OPERATIONS_COUNT);
+        int operationsCount = 3;
+        int randomNumber1 = Utils.generateNumber(1, MAX_NUMBER);
+        int randomNumber2 = Utils.generateNumber(1, MAX_NUMBER);
+        int randomOperationIndex = Utils.generateNumber(0, operationsCount - 1);
 
-        String operation = switch (randomOperation) {
-            case 0 -> "-";
-            case 1 -> "+";
-            case 2 -> "*";
-            default -> "";
-        };
+        String[] operations = new String[]{"-", "+", "*"};
+        String randomOperation = operations[randomOperationIndex];
 
-        String quest = "Question: " + randomNumber1 + " " + operation + " " + randomNumber2;
-        String result = String.valueOf(generateResult(randomNumber1, randomNumber2, operation));
+        String quest = randomNumber1 + " " + randomOperation + " " + randomNumber2;
+        String result = String.valueOf(generateResult(randomNumber1, randomNumber2, randomOperation));
 
-        return new String[]{quest, result, CALC_TASK};
+        return new String[]{quest, result};
     }
 
-    public static String[] getGame() {
-        return makeGame();
+    public static void play() {
+        String[][] gameData = new String[Engine.ROUNDS][makeGame().length];
+
+        for (int i = 0; i < gameData.length; i++) {
+            gameData[i] = makeGame();
+        }
+        Engine.manageGame(gameData, CALC_TASK);
     }
 }
