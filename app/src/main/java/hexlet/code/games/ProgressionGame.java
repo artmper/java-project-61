@@ -5,6 +5,11 @@ import hexlet.code.Utils;
 
 public final class ProgressionGame {
     private static final int MAX_NUMBER = 50;
+    private static final int MIN_LENGTH = 5;
+    private static final int MAX_LENGTH = 10;
+    private static final int MIN_STEP = 2;
+    private static final int MAX_STEP = 5;
+
     private static final String PROGRESSION_TASK = "What number is missing in the progression?";
 
     private static String[] generateProgression(int length, int step, int start) {
@@ -19,13 +24,9 @@ public final class ProgressionGame {
     }
 
     private static String[] makeGame() {
-        final int maxLength = 10;
-        final int minStep = 2;
-        final int maxStep = 5;
-
-        int progressionLength = Utils.generateNumber(5, maxLength);
+        int progressionLength = Utils.generateNumber(MIN_LENGTH, MAX_LENGTH);
         int startNumber = Utils.generateNumber(1, MAX_NUMBER);
-        int step = Utils.generateNumber(minStep, maxStep);
+        int step = Utils.generateNumber(MIN_STEP, MAX_STEP);
         int missingIndex = Utils.generateNumber(0, progressionLength - 1);
 
         String[] numbers = generateProgression(progressionLength, step, startNumber);
