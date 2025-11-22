@@ -14,10 +14,9 @@ public final class ProgressionGame {
 
     private static String[] generateProgression(int length, int step, int start) {
         String[] progression = new String[length];
-        int currentElement;
 
         for (int index = 0; index < length; index++) {
-            currentElement = start + index * step;
+            int currentElement = start + index * step;
             progression[index] = String.valueOf(currentElement);
         }
         return progression;

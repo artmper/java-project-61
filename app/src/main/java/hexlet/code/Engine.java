@@ -9,13 +9,16 @@ public final class Engine {
         Scanner scanner = new Scanner(System.in);
         int countCorrect = 0;
 
-        Cli.greetPlayer();
+        System.out.println("\nWelcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String playerName = scanner.next();
+        System.out.println("Hello, " + playerName + "!");
         System.out.println(task);
 
         for (String[] round : data) {
             System.out.println("Question: " + round[0]);
             System.out.print("Your answer: ");
-            String playerGuess = scanner.nextLine();
+            String playerGuess = scanner.next();
             String correctAnswer = round[1];
 
             if (playerGuess.equals(correctAnswer)) {
@@ -24,13 +27,13 @@ public final class Engine {
             } else {
                 System.out.println("'" + playerGuess + "'" + " is wrong answer ;(. Correct answer was "
                         + "'" + correctAnswer + "'" + ".");
-                System.out.println("Let's try again, " + Cli.getPlayerName() + "!");
+                System.out.println("Let's try again, " + playerName + "!");
                 break;
             }
         }
 
         if (countCorrect == ROUNDS) {
-            System.out.println("Congratulations, " + Cli.getPlayerName() + "!");
+            System.out.println("Congratulations, " + playerName + "!");
         }
 
         scanner.close();

@@ -28,10 +28,10 @@ public class App {
                 + "\n" + GAME6
                 + "\n" + GAME0);
         System.out.print("Your choice: ");
-        String gameType = scanner.nextLine();
+        String gameType = scanner.next();
 
         switch (gameType) {
-            case "1" -> Cli.greetPlayer();
+            case "1" -> Cli.greet();
             case "2" -> EvenGame.play();
             case "3" -> CalcGame.play();
             case "4" -> GcdGame.play();
