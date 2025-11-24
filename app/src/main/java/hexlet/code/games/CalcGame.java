@@ -19,9 +19,9 @@ public final class CalcGame {
     private static String[] makeGame() {
         int randomNumber1 = Utils.generateNumber(1, MAX_NUMBER);
         int randomNumber2 = Utils.generateNumber(1, MAX_NUMBER);
-        int randomOperationIndex = Utils.generateNumber(0, 2);
 
         String[] operations = new String[]{"-", "+", "*"};
+        int randomOperationIndex = Utils.generateNumber(0, operations.length - 1);
         String randomOperation = operations[randomOperationIndex];
 
         String quest = randomNumber1 + " " + randomOperation + " " + randomNumber2;
@@ -31,7 +31,7 @@ public final class CalcGame {
     }
 
     public static void play() {
-        String[][] gameData = new String[Engine.ROUNDS][makeGame().length];
+        String[][] gameData = new String[Engine.ROUNDS][2];
 
         for (int i = 0; i < gameData.length; i++) {
             gameData[i] = makeGame();

@@ -33,7 +33,7 @@ public final class PrimeGame {
     }
 
     public static void play() {
-        String[][] gameData = new String[Engine.ROUNDS][makeGame().length];
+        String[][] gameData = new String[Engine.ROUNDS][2];
 
         for (int i = 0; i < gameData.length; i++) {
             gameData[i] = makeGame();
